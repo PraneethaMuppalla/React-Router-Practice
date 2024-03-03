@@ -1,9 +1,19 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const ProductDetails = () => {
   const value = useParams();
-  return <h1>Product {value.productId}</h1>;
+  const navigate = useNavigate();
+  const navigationHandler = () => {
+    navigate("/products");
+  };
+  return (
+    <>
+      {" "}
+      <h1>Product {value.productId}</h1>
+      <button onClick={navigationHandler}>Navigate</button>
+    </>
+  );
 };
 
 export default ProductDetails;
